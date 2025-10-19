@@ -9,9 +9,6 @@ This repository contains my notes and walkthroughs for two modules completed as 
 - `docs/JS.md` — JavaScript basics, internal vs external scripts, examples, and security notes. :contentReference[oaicite:10]{index=10}  
 - `docs/SQL.md` — SQL basics: CRUD, queries, functions, and examples. :contentReference[oaicite:11]{index=11}
 
-## How to use
-Open the `docs/` files in GitHub (they are Markdown) to read the module notes. Add screenshots and example payloads into `assets/` if needed.
-
 ## License
 This project is released under the MIT License. See `LICENSE` for details.
 
