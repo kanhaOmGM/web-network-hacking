@@ -1,0 +1,71 @@
+LAN
+Star Topology
+Bus Topology- With a bus topology, all devices are connected to a single cable, often called the backbone
+Ring Topology- One of the major flaws with a ring topology is that if a device goes down or a cable is broken, then data will no longer be passed
+
+Switches are dedicated devices within a network that are designed to aggregate multiple other devices such as computers, printers, or any other networking-capable device using ethernet. 
+It's a router's job to connect networks and pass data between them. It does this by using routing (hence the name router)
+
+
+
+Subnetting
+Network Address 
+This address identifies the start of the actual network and is used to identify a network's existence.(As we can recall, an IP address is made up of four sections called octets. The same goes for a subnet mask which is also represented as a number of four bytes (32 bits), ranging from 0 to 255 (0-255).)
+For example, a device with the IP address of 192.168.1.100 will be on the network identified by 192.168.1.0
+192.168.1.0
+Host Address
+An IP address here is used to identify a device on the subnet
+For example, a device will have the network address of 192.168.1.1
+192.168.1.100
+Default Gateway
+The default gateway address is a special address assigned to a device on the network that is capable of sending information to another network 
+Any data that needs to go to a device that isn't on the same network (i.e. isn't on 192.168.1.0) will be sent to this device. These devices can use any host address but usually use either the first or last host address in a network (.1 or .254)
+
+
+ARP
+the Address Resolution Protocol or ARP for short, is the technology that is responsible for allowing devices to identify themselves on a network.
+
+When an ARP request is sent, a message is broadcasted on the network to other devices asking, "What is the mac address that owns this IP address?" When the other devices receive that message, they will only respond if they own that IP address and will send an ARP reply with its MAC address. The requesting device can now remember this mapping and store it in its ARP cache for future use.
+
+
+
+
+OSI
+Open Systems Interconnection
+The OSI model (or Open Systems Interconnection Model) is an essential model used in networking.  This critical model provides a framework dictating how all networked devices will send, receive and interpret data.
+One of the main benefits of the OSI model is that devices can have different functions and designs on a network while communicating with other devices. Data sent across a network that follows the uniformity of the OSI model can be understood by other devices.
+encapsulation
+
+Layer 1 Physical
+Layer 2 Data Link
+The data link layer focuses on the physical addressing of the transmission. It receives a packet from the network layer (including the IP address for the remote computer) and adds in the physical MAC (Media Access Control) address of the receiving endpoint. Inside every network-enabled computer is a Network Interface Card (NIC) which comes with a unique MAC address to identify it.
+Layer 3 Network
+Whilst some protocols at this layer determine exactly what is the "optimal" path that data should take to reach a device, we should only know about their existence at this stage of the networking module. Briefly, these protocols include OSPF (Open Shortest Path First) and RIP (Routing Information Protocol). The factors that decide what route is taken is decided by the following:
+Layer 4 Transport
+TCP. The Transmission Control Protocol (TCP)
+User Datagram Protocol (or UDP for short)
+Layer 5 Session
+Layer 6 Presentation
+This layer acts as a translator for data to and from the application layer (layer 7). The receiving computer will also understand data sent to a computer in one format destined for in another format. For example, when you send an email, the other user may have another email client to you, but the contents of the email will still need to display the same.
+Security features such as data encryption (like HTTPS when visiting a secure site) occur at this layer.
+
+
+Packets and Frames
+
+A packet is a piece of data from Layer 3 (Network Layer) of the OSI model, containing information such as an IP header and payload. A frame, however, is used at Layer 2 (Data Link) of the OSI model, which, encapsulates the packet and adds additional information such as MAC addresses.
+
+
+
+Extending Network
+
+Stateful
+This type of firewall uses the entire information from a connection; rather than inspecting an individual packet, this firewall determines the behaviour of a device based upon the entire connection.
+This firewall type consumes many resources in comparison to stateless firewalls as the decision making is dynamic. For example, a firewall could allow the first parts of a TCP handshake that would later fail.
+If a connection from a host is bad, it will block the entire device.
+
+Stateless
+This firewall type uses a static set of rules to determine whether or not individual packets are acceptable or not. For example, a device sending a bad packet will not necessarily mean that the entire device is then blocked.
+Whilst these firewalls use much fewer resources than alternatives, they are much dumber. For example, these firewalls are only effective as the rules that are defined within them. If a rule is not exactly matched, it is effectively useless.
+However, these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)
+
+

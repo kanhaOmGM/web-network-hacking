@@ -1,0 +1,105 @@
+Relational databases: Store structured data, meaning the data inserted into this database follows a structure. For example, the data collected on a user consists of first_name, last_name, email_address, username and password. When a new user joins, an entry is made in the database following this structure. This structured data is stored in rows and columns in a table (all of which will be covered shortly); relationships can then be made between two or more tables (for example, user and order_history), hence the term relational databases.
+
+Non-relational databases: Instead of storing data the above way, store data in a non-tabular format. For example, if documents are being scanned, which can contain varying types and quantities of data, and are stored in a database that calls for a non-tabular format. Here is an example of what that might look like: 
+
+Primary Keys: A primary key is used to ensure that the data collected in a certain column is unique. That is, there needs to be a way to identify each record stored in a table, a value unique to that record and is not repeated by any other record in that table.
+
+Foreign Keys: A foreign key is a column (or columns) in a table that also exists in another table within the database, and therefore provides a link between the two tables. 
+
+THM{575a947132312f97b30ee5aeebba629b723d30f9
+THM{692aa7eaec2a2a827f4d1a8bed1f90e5e49d2410
+
+CRUD stands for Create, Read, Update, and Delete, which are considered the basic operations in any system that manages data.
+
+CREATE DATABASE thm_bookmarket_db;
+CREATE TABLE book_inventory (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    publication_date DATE
+);
+CREATE TABLE book_inventory (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    publication_date DATE
+);
+ALTER TABLE book_inventory
+ADD page_count INT;
+
+The Create operation will create new records in a table. In MySQL, this can be achieved by using the statement INSERT INTO.
+ INSERT INTO books (id, name, published_date, description)
+    VALUES (1, "Android Security Internals", "2014-10-14", "An In-Depth Guide to Android's Security Architecture");
+The Read operation, as the name suggests, is used to read or retrieve information from a table. We can fetch a column or all columns from a table with the SELECT statement
+The Update operation modifies an existing record within a table, and the same statement, UPDATE
+UPDATE books
+    SET description = "An In-Depth Guide to Android's Security Architecture."
+    WHERE id = 1;
+
+The delete operation removes records from a table. We can achieve this with the DELETE statement.
+DELETE FROM books WHERE id = 1;
+
+
+The DISTINCT clause is used to avoid duplicate records when doing a query, returning only unique values.
+
+The GROUP BY clause aggregates data from multiple records and groups the query results in columns. This can be helpful for aggregating functions.
+
+The GROUP BY clause aggregates data from multiple records and groups the query results in columns. This can be helpful for aggregating functions.
+
+The HAVING clause is used with other clauses to filter groups or results of records based on a condition. In the case of GROUP BY, it evaluates the condition to TRUE or FALSE, unlike the WHERE clause HAVING filters the results after the aggregation is performed.
+
+SELECT *FROM hacking_tools ORDER BY name ASC;
+
+Logical Operators
+These operators test the truth of a condition and return a boolean value of TRUE or FALSE
+LIKE Operator
+The LIKE operator is commonly used in conjunction with clauses like WHERE in order to filter for specific patterns within a column. 
+AND Operator
+The AND operator uses multiple conditions within a query and returns TRUE if all of them are true.
+OR Operator
+The OR operator combines multiple conditions within queries and returns TRUE if at least one of these conditions is true.
+NOT Operator
+The NOT operator reverses the value of a boolean operator, allowing us to exclude a specific condition.
+BETWEEN Operator
+The BETWEEN operator allows us to test if a value exists within a defined range.
+Equal To Operator
+The = (Equal) operator compares two expressions and determines if they are equal, or it can check if a value matches another one in a specific column.
+Not Equal To Operator
+The != (not equal) operator compares expressions and tests if they are not equal; it also checks if a value differs from the one within a column.
+Less Than Operator
+The < (less than) operator compares if the expression with a given value is lesser than the provided one.
+Greater Than Operator
+The > (greater than) operator compares if the expression with a given value is greater than the provided one.
+ess Than or Equal To and Greater  Than or Equal To Operators
+The <= (Less than or equal) operator compares if the expression with a given value is less than or equal to the provided one. On the other hand, The >= (Greater than or Equal) operator compares if the expression with a given value is greater than or equal to the provided one. Let's observe some examples of both below.
+
+
+SELECT *FROM hacking_tools WHERE category = 'Multi-tool';
+SELECT category FROM hacking_tools WHERE amount >= 300;
+SELECT name FROM hacking_tools WHERE amount < 100 AND category= 'Network Intelligence';
+
+CONCAT() Function
+This function is used to add two or more strings together. It is useful to combine text from different columns.
+GROUP_CONCAT() Function
+This function can help us to concatenate data from multiple rows into one field. Let's explore an example of its usage.
+SUBSTRING() Function
+This function will retrieve a substring from a string within a query, starting at a determined position. The length of this substring can also be specified.
+LENGTH() Function
+This function returns the number of characters in a string. This includes spaces and punctuation. 
+COUNT() Function
+This function returns the number of records within an expression
+GROUP_CONCAT() Function
+This function can help us to concatenate data from multiple rows into one field.
+SUBSTRING() Function
+This function will retrieve a substring from a string within a query, starting at a determined position. 
+LENGTH() Function
+This function returns the number of characters in a string. This includes spaces and punctuation.
+MIN() Function
+This function calculates the minimum value within a provided column in an expression.
+MAX() Function
+This function calculates the maximum value within a provided column in an expression.
+SUM() Function
+This function sums all values (not NULL) of a determined column.
+
+SELECT name, LENGTH(name) AS name_length FROM hacking_tools ORDER BY name_length ASC;
+SELECT SUM(amount) AS total FROM hacking_tools;
+SELECT CONCAT(name, "&", category, " book.") AS book_info FROM books;
+SELECT GROUP_CONCAT(name, '&') AS conc FROM hacking_tools WHERE amount % 10 != 0;

@@ -1,0 +1,132 @@
+ JS is an interpreted language, meaning the code is executed directly in the browser without prior compilation. Below is a sample JS code demonstrating key concepts, such as defining a variable, understanding data types, using control flow statements, and writing simple functions. These essential building blocks help create more dynamic and interactive web apps. 
+
+Internal JS refers to embedding the JS code directly within an HTML document. This method is preferable for beginners because it allows them to see how the script interacts with the HTML. The script is inserted between <script> tags. These tags can be placed inside the <head> section, typically used for scripts that need to be loaded before the page content is rendered, or inside the <body> section, where the script can be utilised to interact with elements as they are loaded on the web page.
+
+Example:
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Internal JS</title>
+</head>
+<body>
+    <h1>Addition of Two Numbers</h1>
+    <p id="result"></p>
+
+    <script>
+        let x = 5;
+        let y = 10;
+        let result = x + y;
+        document.getElementById("result").innerHTML = "The result is: " + result;
+    </script>
+</body>
+</html>
+
+
+External JS involves creating and storing JS code in a separate file ending with a .js file extension. This method helps developers keep the HTML document clean and organised. The external JS file can be stored or hosted on the same web server as the HTML document or stored on an external web server such as the cloud.
+
+JS
+let x = 5;
+let y = 10;
+let result = x + y;
+document.getElementById("result").innerHTML = "The result is: " + result;
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External JS</title>
+</head>
+<body>
+    <h1>Addition of Two Numbers</h1>
+    <p id="result"></p>
+
+    <!-- Link to the external JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
+What we did differently is use the src attribute in the <script> tag to load the JS from an external file. When the browser loads the page, it looks for the script.js file and loads its content into the HTML document. This approach allows us to keep the JS code separate from the HTML, making the code more organised and easier to maintain, especially when working on larger projects.
+
+
+When pen-testing a web application, it is important to check whether the website uses internal or external JS. This can be easily verified by viewing the page's source code.
+INTERNAL
+EXTERNAL
+thm_external.js
+SRC
+
+
+One of the main objectives of JS is to provide dialogue boxes for interaction with users and dynamically update content on web pages. JS provides built-in functions like alert, prompt, and confirm to facilitate this interaction. These functions allow developers to display messages, gather input, and obtain user confirmation. However, if not implemented securely, attackers may exploit these features to execute attacks like Cross-Site Scripting (XSS), which you will cover later in this module.
+ALERT
+PROMPT
+CONFIRM
+
+
+ALERT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hacked</title>
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 3; i++) {
+            alert("Hacked");
+        }
+    </script>
+</body>
+</html>
+
+
+
+Bypassing conditionals
+
+Control flow in JS refers to the order in which statements and code blocks are executed based on certain conditions. JS provides several control flow structures such as if-else, switch statements to make decisions, and loops like for, while, and do...while to repeat actions. Proper use of control flow ensures that a program can handle various conditions effectively.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Authentication</h2>
+
+    <script>
+        let username = prompt("Enter your username:");
+        let password = prompt("Enter your password:");
+
+        if (username === "admin" && password === "ComplexPassword") {
+            document.write("You are successfully authenticated!");
+        } else {
+            document.write("Authentication failed. Incorrect username or password.");
+        }
+    </script>
+</body>
+</html>
+
+ComplexPassword
+
+
+Minification in JS is the process of compressing JS files by removing all unnecessary characters, such as spaces, line breaks, comments, and even shortening variable names. This helps reduce the file size and improves the loading time of web pages, especially in production environments. Minified files make the code more compact and harder to read for humans, but they still function exactly the same.
+Similarly, obfuscation is often used to make JS harder to understand by adding undesired code, renaming variables and functions to meaningless names, and even inserting dummy code.
+
+WELCOME TO THM
+21
+
+
+Best Practices
+
+Avoid Relying on Client-Side Validation Only
+
+One of JS's primary functions is performing client-side validation. Developers sometimes use it for validating forms and rely entirely on it, which is not a good practice. Since a user can disable/manipulate JS on the client side, performing validation on the server side is also essential.
+
+Refrain from Adding Untrusted Libraries
+
+As discussed in earlier tasks, JS allows you to include any other JS scripts using the src attribute inside a script tag. But have you considered whether the library we include is from a trusted source? Bad actors have uploaded a bundle of libraries on the internet with names that resemble legitimate ones. So, if you blindly include a malicious library, you will expose your web application to threats.
+
+Avoid Hardcoded Secrets
+
+Never hardcode sensitive data like API keys, access tokens, or credentials into your JS code, as the user can easily check the source code and get the password.
+ 
+Minify and Obfuscate Your JavaScript Code
+
+Minifying and obfuscating JS code reduces its size, improves load time, and makes it harder for attackers to understand the logic of the code. Therefore, always minify and obfuscate the code when using code in production. The attacker can eventually reverse engineer it, but getting the original code will take at least some effort. 
