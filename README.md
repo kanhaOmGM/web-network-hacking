@@ -12,5 +12,5 @@ This repository contains my notes and walkthroughs for two modules completed as 
 ## License
 This project is released under the MIT License. See `LICENSE` for details.
 
-## Contact / Author
-Om Prakash Sahu — (put your preferred contact or link to your GitHub profile here)
+## Author
+Om Prakash Sahu 
