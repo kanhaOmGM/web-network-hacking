@@ -186,27 +186,6 @@ These networking fundamentals provide essential background knowledge for underst
 - Improving defensive security posture
 - Professional penetration testing engagements
 
-**Never:**
-- Test applications without explicit written permission
-- Use these techniques for malicious purposes
-- Access data you're not authorized to view
-- Cause damage to systems or data
-
-**Always:**
-- Obtain proper authorization before testing
-- Follow responsible disclosure practices
-- Respect scope limitations
-- Maintain confidentiality of findings
-
-## 🎓 Certification Path
-
-This knowledge supports preparation for:
-- CEH (Certified Ethical Hacker)
-- OSCP (Offensive Security Certified Professional)
-- OSWE (Offensive Security Web Expert)
-- GWAPT (GIAC Web Application Penetration Tester)
-- eWPT (eLearnSecurity Web Application Penetration Tester)
-
 ##  Module Completion
 
 These notes are based on completed TryHackMe modules:
@@ -225,7 +204,7 @@ Feel free to:
 - Share exploitation techniques
 - Improve documentation clarity
 
-## 📄 License
+##  License
 
 This project is released under the MIT License. See `LICENSE` for details.
 
